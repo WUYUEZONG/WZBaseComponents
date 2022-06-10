@@ -10,8 +10,14 @@ import Foundation
 
 public class WZUITool {
     
-    static var shared = WZUITool()
+    public static var shared = WZUITool()
     
+    public lazy var utcCalendar: Calendar = {
+        return Calendar(identifier: .gregorian)
+    }()
+}
+
+public extension WZUITool {
     /// 是否刘海屏
     static var isCamInScreen: Bool {
         CGFloat.standardStatusBarHeight > 20
@@ -21,12 +27,4 @@ public class WZUITool {
     static var isPortrait: Bool {
         CGFloat.wzScreenWidth < CGFloat.wzScreenHeight
     }
-    
-    lazy var utcCalendar: Calendar = {
-        return Calendar(identifier: .gregorian)
-    }()
-    
-   
-    
-    
 }
